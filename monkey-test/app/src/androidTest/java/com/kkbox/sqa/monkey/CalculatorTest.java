@@ -19,7 +19,7 @@ import static org.junit.Assert.assertThat;
 @RunWith(AndroidJUnit4.class)
 public class CalculatorTest {
     private UiDevice device =  UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
-    private static final String APP_PACKAGE = "com.android.calculator2";
+    private static final String APP_PACKAGE = "com.skysoft.kkbox.android";
     private static final int TIMEOUT = 5000;
 
     @Test

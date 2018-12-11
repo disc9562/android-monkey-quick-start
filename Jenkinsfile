@@ -33,7 +33,7 @@ pipeline {
 
                 // run monkey
                 sh '''
-                adb shell monkey -p com.android.calculator2 -v 20000 > output/monkey/monkey.log
+                adb shell monkey -p com.android.calculator2 -v 5000 > output/monkey/monkey.log
                 sleep 10
                 '''
 
