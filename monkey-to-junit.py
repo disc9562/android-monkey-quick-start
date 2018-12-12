@@ -55,7 +55,7 @@ def main():
         monkey_log = sys.argv[1]
         MonkeyParser(monkey_log).show()
     else:
-        print 'usage: $ python ' + sys.argv[0] + ' monkey.log'
+        print ('usage: $ python ' + sys.argv[0] + ' monkey.log')
 
 if __name__ == '__main__':
     main()
