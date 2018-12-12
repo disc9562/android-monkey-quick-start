@@ -64,7 +64,7 @@ pipeline {
 
                     // JUnit xml
                     sh '''
-                    python monkey-to-junit.py output/monkey/monkey.log > output/monkey/monkey.xml
+                    python3 monkey-to-junit.py output/monkey/monkey.log > output/monkey/monkey.xml
                     '''
 
                     junit "output/monkey/*.xml"
