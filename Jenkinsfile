@@ -25,7 +25,7 @@ pipeline {
                 // init artifact directory
                 sh 'mkdir -p output/monkey/'
 
-                // start recording
+                // start recording
                 sh '''
                 adb shell am start -n com.kkbox.sqa.recorder/.MainActivity -a android.intent.action.RUN -d START
                 adb shell am instrument -w -e class com.kkbox.sqa.monkey.CalculatorTest#start com.kkbox.sqa.monkey.test/android.support.test.runner.AndroidJUnitRunner
@@ -33,7 +33,7 @@ pipeline {
 
                 // run monkey
                 sh '''
-                adb shell monkey -p com.android.calculator2 -v 5000 > output/monkey/monkey.log
+                adb shell monkey -p com.skysoft.kkbox.android -v 5000 > output/monkey/monkey.log
                 sleep 10
                 '''
 
