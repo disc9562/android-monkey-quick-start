@@ -31,6 +31,10 @@ pipeline {
                 adb shell am instrument -w -e class com.kkbox.sqa.monkey.CalculatorTest#start com.kkbox.sqa.monkey.test/android.support.test.runner.AndroidJUnitRunner
                 '''
 
+                //install KKBOX
+                sh '''
+                adb install ~/Desktop/KKBOX.apk
+                '''
                 // run monkey
                 sh '''
                 adb shell monkey -p com.skysoft.kkbox.android -v 5000 > output/monkey/monkey.log
