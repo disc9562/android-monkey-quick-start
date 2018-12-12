@@ -33,14 +33,14 @@ public class CalculatorTest {
         this.device.wait(Until.hasObject(By.pkg(launcherPackage).depth(0)), TIMEOUT);
 
         // Launch the blueprint app
-        Context context = InstrumentationRegistry.getContext();
-        final Intent intent = context.getPackageManager()
-                .getLaunchIntentForPackage(APP_PACKAGE);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);    // Clear out any previous instances
-        context.startActivity(intent);
-
-        // Wait for the app to appear
-        this.device.wait(Until.hasObject(By.pkg(APP_PACKAGE).depth(0)), TIMEOUT);
+//        Context context = InstrumentationRegistry.getContext();
+//        final Intent intent = context.getPackageManager()
+//                .getLaunchIntentForPackage(APP_PACKAGE);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);    // Clear out any previous instances
+//        context.startActivity(intent);
+//
+//        // Wait for the app to appear
+//        this.device.wait(Until.hasObject(By.pkg(APP_PACKAGE).depth(0)), TIMEOUT);
     }
 
     /**
