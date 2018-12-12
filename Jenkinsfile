@@ -14,7 +14,7 @@ pipeline {
                 deleteDir()
 
 		// checkout repos
-                git branch: 'master', url: 'https://github.com/dino-su/android-monkey-quick-start.git'
+                git branch: 'master', url: 'https://github.com/disc9562/android-monkey-quick-start.git'
 
 		// build and deploy
                 sh '''
@@ -33,7 +33,7 @@ pipeline {
                 // start recording
                 sh '''
                 adb shell am start -n com.kkbox.sqa.recorder/.MainActivity -a android.intent.action.RUN -d START
-                adb shell am instrument -w -e class com.kkbox.sqa.monkey.CalculatorTest com.kkbox.sqa.monkey.test/android.support.test.runner.AndroidJUnitRunner
+                adb shell am instrument -w -e class com.kkbox.sqa.monkey.CalculatorTest#start com.kkbox.sqa.monkey.test/android.support.test.runner.AndroidJUnitRunner
                 sleep 20
                 '''
 
