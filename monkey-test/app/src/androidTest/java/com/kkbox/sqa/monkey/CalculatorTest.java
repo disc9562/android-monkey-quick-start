@@ -26,8 +26,8 @@ public class CalculatorTest {
     private static UiDevice mDevice;
 
     @BeforeClass
-    public static void login() {
-        mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+    public void login() {
+        mDevice = this.device;
 
         // TODO: Uncomment below to using TestBuilder
         // kkbox = new TestBuilder()
@@ -39,6 +39,9 @@ public class CalculatorTest {
         // FIXME: Refactor following to TestBuilder
         // Trial Message Handler
 //        registerTrialWatchers(mDevice);
+
+        mDevice.wait(Until.findObject(By.res("android", "button1")), TIMEOUT).click();
+
 
         // Start from the home screen
         mDevice.pressHome();
@@ -68,16 +71,12 @@ public class CalculatorTest {
             mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "text_uid")), TIMEOUT).setText("demo171018@gmail.com");
             mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "text_password")), TIMEOUT).setText("1234");
             mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "button_login")), TIMEOUT).click();
-
-            // Dismiss Drawer
-            mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "menu_global_search")), LAUNCH_TIMEOUT).click();
-        }
+            }
     }
 
     @Test
     public void start() {
         // grant recording permission
-        device.wait(Until.findObject(By.res("android", "button1")), TIMEOUT).click();
 
         // Wait for launcher
         final String launcherPackage = getLauncherPackageName();
