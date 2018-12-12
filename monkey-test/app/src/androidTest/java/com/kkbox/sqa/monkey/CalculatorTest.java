@@ -25,7 +25,7 @@ public class CalculatorTest {
     private static final int LAUNCH_TIMEOUT = 10000;
     private static UiDevice mDevice;
 
-    @BeforeClass
+//    @BeforeClass
     public void login() {
         mDevice = this.device;
 
@@ -40,7 +40,6 @@ public class CalculatorTest {
         // Trial Message Handler
 //        registerTrialWatchers(mDevice);
 
-        mDevice.wait(Until.findObject(By.res("android", "button1")), TIMEOUT).click();
 
 
         // Start from the home screen
@@ -77,6 +76,7 @@ public class CalculatorTest {
     @Test
     public void start() {
         // grant recording permission
+        mDevice.wait(Until.findObject(By.res("android", "button1")), TIMEOUT).click();
 
         // Wait for launcher
         final String launcherPackage = getLauncherPackageName();
