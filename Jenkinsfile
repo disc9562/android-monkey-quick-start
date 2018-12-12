@@ -14,7 +14,7 @@ pipeline {
                 deleteDir()
 
 		// checkout repos
-                git branch: 'master', url: 'https://github.com/dino-su/android-monkey-quick-start.git'
+                git branch: 'test', url: 'https://github.com/disc9562/android-monkey-quick-start'
 
 		// build and deploy
                 sh '''
@@ -31,9 +31,14 @@ pipeline {
                 adb shell am instrument -w -e class com.kkbox.sqa.monkey.CalculatorTest#start com.kkbox.sqa.monkey.test/android.support.test.runner.AndroidJUnitRunner
                 '''
 
+                sh'''
+                adb install -r -g ~/Desktop/KKBOX.apk
+                adb shell am instrument -w -e class com.kkbox.sqa.monkey.KKBOX#login com.kkbox.sqa.monkey.test/android.support.test.runner.AndroidJUnitRunner
+                '''
+
                 // run monkey
                 sh '''
-                adb shell monkey -p com.android.calculator2 -v 20000 > output/monkey/monkey.log
+                adb shell monkey -p com.skysoft.kkbox.android -v 5000 > output/monkey/monkey.log
                 sleep 10
                 '''
 
@@ -59,7 +64,7 @@ pipeline {
 
                     // JUnit xml
                     sh '''
-                    python monkey-to-junit.py output/monkey/monkey.log > output/monkey/monkey.xml
+                    python3 monkey-to-junit.py output/monkey/monkey.log > output/monkey/monkey.xml
                     '''
 
                     junit "output/monkey/*.xml"
