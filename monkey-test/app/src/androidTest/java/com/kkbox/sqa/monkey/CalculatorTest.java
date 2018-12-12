@@ -26,52 +26,52 @@ public class CalculatorTest {
     private static UiDevice mDevice;
 
 //    @BeforeClass
-    public void login() {
-        mDevice = this.device;
-
-        // TODO: Uncomment below to using TestBuilder
-        // kkbox = new TestBuilder()
-        //        .loginViaEmail("demo171018@gmail.com", "1234")
-        //        .disableTrialMessage()
-        //        .disableTutorial()
-        //        .launch();
-
-        // FIXME: Refactor following to TestBuilder
-        // Trial Message Handler
-//        registerTrialWatchers(mDevice);
-
-
-
-        // Start from the home screen
-        mDevice.pressHome();
-
-        // Wait for launcher
-        final String launcherPackage = getLauncherPackageName();
-        assertThat(launcherPackage, notNullValue());
-        mDevice.wait(Until.hasObject(By.pkg(launcherPackage).depth(0)), LAUNCH_TIMEOUT);
-
-        // Launch the blueprint app
-        Context context = InstrumentationRegistry.getContext();
-        final Intent intent = context.getPackageManager()
-                .getLaunchIntentForPackage(APP_PACKAGE);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);    // Clear out any previous instances
-        context.startActivity(intent);
-
-        // Wait for the app to appear
-        mDevice.wait(Until.hasObject(By.pkg(APP_PACKAGE).depth(0)), LAUNCH_TIMEOUT);
-
-        // Auto login
-        if(mDevice.wait(Until.hasObject(By.res(APP_PACKAGE, "button_login")), TIMEOUT)) {
-            // Login via Email
-            mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "button_login")), TIMEOUT).click();
-            mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "button_login_with_email")), TIMEOUT).click();
-
-            // Submit login form
-            mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "text_uid")), TIMEOUT).setText("demo171018@gmail.com");
-            mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "text_password")), TIMEOUT).setText("1234");
-            mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "button_login")), TIMEOUT).click();
-            }
-    }
+//    public void login() {
+//        mDevice = this.device;
+//
+//        // TODO: Uncomment below to using TestBuilder
+//        // kkbox = new TestBuilder()
+//        //        .loginViaEmail("demo171018@gmail.com", "1234")
+//        //        .disableTrialMessage()
+//        //        .disableTutorial()
+//        //        .launch();
+//
+//        // FIXME: Refactor following to TestBuilder
+//        // Trial Message Handler
+////        registerTrialWatchers(mDevice);
+//
+//
+//
+//        // Start from the home screen
+//        mDevice.pressHome();
+//
+//        // Wait for launcher
+//        final String launcherPackage = getLauncherPackageName();
+//        assertThat(launcherPackage, notNullValue());
+//        mDevice.wait(Until.hasObject(By.pkg(launcherPackage).depth(0)), LAUNCH_TIMEOUT);
+//
+//        // Launch the blueprint app
+//        Context context = InstrumentationRegistry.getContext();
+//        final Intent intent = context.getPackageManager()
+//                .getLaunchIntentForPackage(APP_PACKAGE);
+//        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);    // Clear out any previous instances
+//        context.startActivity(intent);
+//
+//        // Wait for the app to appear
+//        mDevice.wait(Until.hasObject(By.pkg(APP_PACKAGE).depth(0)), LAUNCH_TIMEOUT);
+//
+//        // Auto login
+//        if(mDevice.wait(Until.hasObject(By.res(APP_PACKAGE, "button_login")), TIMEOUT)) {
+//            // Login via Email
+//            mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "button_login")), TIMEOUT).click();
+//            mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "button_login_with_email")), TIMEOUT).click();
+//
+//            // Submit login form
+//            mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "text_uid")), TIMEOUT).setText("demo171018@gmail.com");
+//            mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "text_password")), TIMEOUT).setText("1234");
+//            mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "button_login")), TIMEOUT).click();
+//            }
+//    }
 
     @Test
     public void start() {
