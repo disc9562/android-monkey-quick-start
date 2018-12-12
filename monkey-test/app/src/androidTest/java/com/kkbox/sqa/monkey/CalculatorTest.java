@@ -72,12 +72,6 @@ public class CalculatorTest {
             // Dismiss Drawer
             mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "menu_global_search")), LAUNCH_TIMEOUT).click();
         }
-
-        // Open Search
-        mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "menu_global_search")), LAUNCH_TIMEOUT).click();
-
-        // Dismiss Tutorial
-        mDevice.wait(Until.findObject(By.res(APP_PACKAGE, "menu_music_recognition")), TIMEOUT).click();
     }
 
     @Test
