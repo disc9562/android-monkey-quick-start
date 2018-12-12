@@ -33,7 +33,7 @@ pipeline {
 
                 //install KKBOX
                 sh '''
-                adb install ~/Desktop/KKBOX.apk
+                adb install -r -g ~/Desktop/KKBOX.apk
                 '''
                 // run monkey
                 sh '''
