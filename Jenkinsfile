@@ -34,6 +34,7 @@ pipeline {
                 sh '''
                 adb shell am start -n com.kkbox.sqa.recorder/.MainActivity -a android.intent.action.RUN -d START
                 adb shell am instrument -w -e class com.kkbox.sqa.monkey.CalculatorTest#start com.kkbox.sqa.monkey.test/android.support.test.runner.AndroidJUnitRunner
+                sleep 10
                 '''
 
                 // run monkey
